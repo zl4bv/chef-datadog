@@ -20,7 +20,8 @@ action :add do
     end
     variables(
       :init_config => new_resource.init_config,
-      :instances   => new_resource.instances
+      :instances => new_resource.instances,
+      :version => new_resource.version
     )
     cookbook new_resource.cookbook
     notifies :restart, 'service[datadog-agent]', :delayed if node['datadog']['agent_start']
